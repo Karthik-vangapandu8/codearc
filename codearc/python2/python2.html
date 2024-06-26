@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Streaming Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Live Streaming Website</h1>
+    </header>
+    <main>
+        <div id="videoContainer" class="video-container">
+            <iframe id="videoPlayer" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+            <button id="minimizeButton">Minimize</button>
+            <button id="maximizeButton" style="display:none;">Maximize</button>
+        </div>
+        <div class="category-buttons">
+            <button class="category-button" data-category="Core-python">Core-python</button>
+            <button class="category-button" data-category="python-datascience">python-datascience</button>
+            <button class="category-button" data-category="python-machinelearning">python-machinelearning</button>
+        </div>
+        <h2 id="categoryTitle"></h2>
+        <ul id="videoPlaylist"></ul>
+        <h2>Materials</h2>
+        <ul id="materialsList"></ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Live Streaming Website. All rights reserved.</p>
+    </footer>
+    <script src="python2.js"></script>
+</body>
+</html>

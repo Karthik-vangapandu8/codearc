@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.S.A Videos</title>
+    <link rel="stylesheet" href="dsa.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Code-Arc</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dsa.html">D.S.A</a></li>
+                <li><a href="python.html">Python</a></li>
+                <li><a href="interview-preparation.html">Interview Preparation</a></li>
+                <li><a href="data-analytics-tools.html">Data Analytics Tools</a></li>
+            </ul>
+            <button class="sign-in">Profile</button>
+        </nav>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul class="category-list">
+                <li><button class="category-button" data-category="arrays">Arrays</button></li>
+                <li><button class="category-button" data-category="linked-lists">Linked Lists</button></li>
+                <li><button class="category-button" data-category="trees">Trees</button></li>
+                <li><button class="category-button" data-category="graphs">Graphs</button></li>
+            </ul>
+        </aside>
+        <section class="videos">
+            <h2 id="categoryTitle">D.S.A Videos</h2>
+            <div class="video-container" id="videoContainer">
+                <video id="videoPlayer" controls>
+                    <source id="videoSource" src="videos/RAM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="annotations"></div>
+                <button id="minimizeButton" class="control-button">Minimize</button>
+                <button id="maximizeButton" class="control-button">Maximize</button>
+            </div>
+            <div class="playlist">
+                <h3>Playlist</h3>
+                <ul id="videoPlaylist">
+                    <!-- Dynamic content will be inserted here -->
+                </ul>
+            </div>
+            <div class="materials">
+                <h3>Additional Materials</h3>
+                <ul id="materialsList">
+                    <!-- Dynamic content will be inserted here -->
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <script src="dsa.js"></script>
+</body>
+</html>
