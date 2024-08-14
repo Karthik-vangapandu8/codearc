@@ -1,6 +1,8 @@
+// dsa.js
 document.addEventListener('DOMContentLoaded', function() {
     const videoContainer = document.getElementById('videoContainer');
     const videoPlayer = document.getElementById('videoPlayer');
+    const videoSource = document.getElementById('videoSource');
     const minimizeButton = document.getElementById('minimizeButton');
     const maximizeButton = document.getElementById('maximizeButton');
     const categoryButtons = document.querySelectorAll('.category-button');
@@ -9,33 +11,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoPlaylist = document.getElementById('videoPlaylist');
 
     const videoData = {
-        'Core-python': {
-            title: 'Core-python',
-            playlistId: 'AIzaSyCnBaxtsPuYEWbt1QcgUN1j8xBZD8UxW5E',
+        'arrays': {
+            title: 'py-game',
+            videos: [
+                { src: 'videos/RAM.mp4', title: 'py-game fundamentals ' },
+                { src: 'videos/', title: 'advance py-game' },
+                { src: 'videos/', title: 'show game using python' },
+            ],
             materials: [
-                { name: 'Lecture Notes on Python', url: 'path/to/arrays_note.pdf' },
-                { name: 'python Coding Examples', url: 'path/to/arrays_examples.zip' },
-                { name: 'python Quiz', url: 'path/to/arrays_quiz.html' }
+                { name: 'Lecture Notes on Python', url: 'path/to/arrays_note.pdf' }
             ]
         },
-        'python-datascience': {
-            title: 'python-datascience',
-            playlistId: 'YOUR_YOUTUBE_PLAYLIST_ID_2',
+        'linked-lists': {
+            title: 'datascience ',
+            videos: [
+                { src: 'videos/linkedlists_video1.mp4', title: 'datascience using python' },
+                { src: 'videos/linkedlists_video2.mp4', title: 'intro to pandas ' },
+                { src: 'videos/linkedlists_video3.mp4', title: 'pandas project-1' },
+            ],
             materials: [
-                { name: 'Lecture Notes on Python', url: 'path/to/arrays_note.pdf' },
-                { name: 'python Coding Examples', url: 'path/to/arrays_examples.zip' },
-                { name: 'python Quiz', url: 'path/to/arrays_quiz.html' }
+                { name: 'Lecture Notes on Datascience', url: 'path/to/linkedlists_note.pdf' },
             ]
         },
-        'python-machinelearning': {
-            title: 'python-machinelearning',
-            playlistId: 'YOUR_YOUTUBE_PLAYLIST_ID_3',
-            materials: [
-                { name: 'Lecture Notes on Python', url: 'path/to/arrays_note.pdf' },
-                { name: 'python Coding Examples', url: 'path/to/arrays_examples.zip' },
-                { name: 'python Quiz', url: 'path/to/arrays_quiz.html' }
-            ]
-        }
+        // Add more categories as needed
     };
 
     minimizeButton.addEventListener('click', function() {
@@ -59,22 +57,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (data) {
                 categoryTitle.textContent = data.title;
-                videoPlayer.src = `https://www.youtube.com/embed?listType=playlist&list=${data.playlistId}`;
+                videoPlayer.src = data.videos[0].src;
                 
                 // Update video playlist
-                fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=${data.playlistId}&key=YOUR_YOUTUBE_API_KEY`)
-                    .then(response => response.json())
-                    .then(response => {
-                        videoPlaylist.innerHTML = '';
-                        response.items.forEach(item => {
-                            const li = document.createElement('li');
-                            const a = document.createElement('a');
-                            a.href = `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`;
-                            a.textContent = item.snippet.title;
-                            li.appendChild(a);
-                            videoPlaylist.appendChild(li);
-                        });
+                videoPlaylist.innerHTML = '';
+                data.videos.forEach(video => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = video.title;
+                    a.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        videoPlayer.src = video.src;
+                        videoPlayer.play();
                     });
+                    li.appendChild(a);
+                    videoPlaylist.appendChild(li);
+                });
 
                 // Update materials list
                 materialsList.innerHTML = '';

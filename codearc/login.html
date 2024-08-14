@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Code-Arc</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="username">Username (Email):</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message" style="color: red; display: none;"></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Email format validation
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(username)) {
+                errorMessage.textContent = "Please enter a valid email address.";
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Minimum password length validation
+            if (password.length < 8) {
+                errorMessage.textContent = "Password must be at least 8 characters long.";
+                errorMessage.style.display = 'block';
+                return;
+            }
+            // Allowed username and password
+            const allowedUsers = {
+                "karthikvangapandu@anits.com": "9948929742",
+                "chittimallavenu@anits.com": "9392480464",
+                "hanumanthusandeep@anits.com": "8332029784",
+            };
+
+            if (allowedUsers[username] !== password) {
+                errorMessage.textContent = "Invalid username or password!";
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // If all validations pass, store the username and redirect
+            localStorage.setItem('username', username);
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

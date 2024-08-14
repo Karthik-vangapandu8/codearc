@@ -11,13 +11,11 @@
         <nav>
             <div class="logo">Code-Arc</div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/codearc/index.html">Home</a></li>
                 <li><a href="dsa.html">D.S.A</a></li>
-                <li><a href="python.html">Python</a></li>
-                <li><a href="interview-preparation.html">Interview Preparation</a></li>
-                <li><a href="data-analytics-tools.html">Data Analytics Tools</a></li>
+                <li><a href="/codearc/full-stack/full-stack.html">Full-stack</a></li>
             </ul>
-            <button class="sign-in">Profile</button>
+            <button class="sign-in" id="loginStatus">Profile</button>
         </nav>
     </header>
 
@@ -27,8 +25,6 @@
             <ul class="category-list">
                 <li><button class="category-button" data-category="arrays">Arrays</button></li>
                 <li><button class="category-button" data-category="linked-lists">Linked Lists</button></li>
-                <li><button class="category-button" data-category="trees">Trees</button></li>
-                <li><button class="category-button" data-category="graphs">Graphs</button></li>
             </ul>
         </aside>
         <section class="videos">
@@ -56,6 +52,21 @@
             </div>
         </section>
     </main>
+    <script>
+        window.onload = function() {
+            const username = localStorage.getItem('username');
+            const loginButton = document.getElementById('loginStatus');
+
+            if (username) {
+                loginButton.textContent = `Welcome, ${username}`;
+                loginButton.disabled = true;
+            } else {
+                loginButton.addEventListener('click', function() {
+                    window.location.href = 'login.html';
+                });
+            }
+        };
+    </script>
     
     <script src="dsa.js"></script>
 </body>

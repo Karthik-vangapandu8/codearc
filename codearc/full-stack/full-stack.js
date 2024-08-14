@@ -12,25 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const videoData = {
         'arrays': {
-            title: 'Arrays',
+            title: 'Java Script',
             videos: [
-                { src: 'videos/RAM.mp4', title: 'Arrays-1 ' },
-                { src: 'videos/', title: 'Arrays-2' },
-                { src: 'videos/', title: 'Complexity analysis' },
+                { src: 'videos/RAM.mp4', title: 'JS Foundations ' },
+                { src: 'videos/', title: 'Loops,functions,Callbacks' },
             ],
             materials: [
-                { name: 'Lecture Notes on Arrays', url: 'path/to/arrays_note.pdf' }
-            ]
-        },
-        'linked-lists': {
-            title: 'Linked Lists',
-            videos: [
-                { src: 'videos/linkedlists_video1.mp4', title: 'Linked Lists Video 1' },
-                { src: 'videos/linkedlists_video2.mp4', title: 'Linked Lists Video 2' },
-                { src: 'videos/linkedlists_video3.mp4', title: 'Linked Lists Video 3' },
-            ],
-            materials: [
-                { name: 'Lecture Notes on Linked Lists', url: 'path/to/linkedlists_note.pdf' },
+                { name: 'Lecture Notes on JS', url: 'path/to/JS_note.pdf' }
             ]
         },
         // Add more categories as needed

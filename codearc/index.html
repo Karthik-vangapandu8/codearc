@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Arc Coding Club</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e, #333);
+            color: #fff;
+        }
+        header {
+            background-color: hsl(39, 94%, 45%);
+            padding: 10px 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            color: #F0F0F0; /* Skyline White */
+            padding: 10px;
+            position: relative;
+        }
+        .nav-links li a:hover {
+            color: #FF4500; /* Sunset Orange */
+        }
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background: #FF4500; /* Sunset Orange */
+            transition: width 0.3s;
+        }
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+        .sign-in {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .sign-in:hover {
+            background-color: #f4a261; /* Optional hover effect */
+        }
+        .hero {
+            background: linear-gradient(135deg, #2a9d8f, #264653);
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .features .feature-link {
+            text-decoration: none; /* Removes underline from the link */
+            display: inline-block; /* Ensures the link behaves as a block */
+            color: #F0F0F0; /* Inherits the color from the parent */
+            background: #1e1e1e;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .features .feature-link:hover .feature {
+            background-color: #555; /* Optional: Add a hover effect */
+        }
+
+        .documents {
+            text-align: center;
+            padding: 20px;
+        }
+        .doc-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .doc-link {
+            background-color: #5a5a5a;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .heading-section {
+            background: linear-gradient(135deg, #264653, #2a9d8f);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .heading-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .heading-section ul {
+            list-style: disc;
+            padding-left: 2rem;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .heading-section li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Module Section Styles */
+        .module {
+            background-color: #444;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .module:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .module h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #FF4500; /* Sunset Orange */
+            text-align: center;
+        }
+        .module ul {
+            list-style: disc;
+            padding-left: 2rem;
+        }
+        .module ul li {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+            color: #E0E0E0;
+        }
+        .module ul ul {
+            padding-left: 1rem;
+            margin-top: 10px;
+        }
+        .module ul ul li {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Code-Arc</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lecture/lectures.html">Lectures</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>
+            <button class="sign-in" id="loginStatus">Profile</button>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Code-Arc</h1>
+            <p>Elevate your Academic and Coding journey with our website! Find Lectures, Interview Questions, and essential tools to excel academically. Take the next step towards success today!</p>
+            <div class="features">
+                <a href="lecture/lectures.html" class="feature-link">
+                    <div class="feature">Lectures</div>
+                </a>
+            </div>
+        </section>
+        <section class="heading-section">
+            <h2>Is the 'Code-Arc' Better for Me and My Career?</h2>
+            <ul>
+                <li><strong>Looking for Proven Success?</strong> Many students don't have enough resources and guidance for landing high-paying jobs/interns in top companies. The online batch is designed to help you achieve similar success in your career.</li>
+                <li><strong>Looking for Structured Curriculum?</strong> The online batch offers a well-structured curriculum that covers a wide range of topics, from coding and data structures to full-stack development and aptitude. This comprehensive approach ensures you gain the skills needed to excel in interviews and placements/internships.</li>
+            </ul>
+        </section>
+        <section class="module">
+            <h3>Module 1: C++ Basics</h3>
+            <ul>
+                <li><strong>Starting from scratch and practice on Hackkerrank</strong></li>
+                <li>First 1-2 weeks, we are going to make you learn coding concepts from the beginning along with practice on HACKERRANK</li>
+                <li>HelloWorld</li>
+                <li>Data Types</li>
+                <li>Variable</li>
+                <li>Variable Scope</li>
+                <li>Operators</li>
+                <li>Loop Types</li>
+                <li>Functions</li>
+                <li>Arrays</li>
+                <li>Strings</li>
+                <li>Searching and Sorting</li>
+                <li>Recursion</li>
+            </ul>
+        </section>
+
+        <section class="module">
+            <h3>Module 2: Python-Basics</h3>
+            <ul>
+                <li><strong>Starting from scratch and practice on Hackkerrank</strong></li>
+                <li>Improvement of resume skills. Learning basics of Python concepts along with practice on Hackerrank platform. Beginner to advanced Module along with projects development</li>
+                <ul>
+                    <li>Introduction to Python</li>
+                    <li>Variables</li>
+                    <li>Data Types</li>
+                    <li>Python Objects, Numbers & Booleans, Containers</li>
+                    <li>Operators - Arithmetic, Bitwise, Comparison, Assignment, Logical, Membership, Identity</li>
+                    <li>Loops</li>
+                    <li>Functions</li>
+                    <li>Modules and Packages</li>
+                </ul>
+            </ul>
+        </section>
+
+        <section class="module">
+            <h3>Module 3: Full Stack Development (Major Project using Frontend & Backend)</h3>
+            <ul>
+                <li><strong>Learn HTML, CSS, JavaScript for front-end part and backend using Spring MVC in Java.</strong></li>
+                <li>Build Your Own TWITTER PROJECT scalable up to 1 Million+ User Support.</li>
+                <ul>
+                    <li><strong>Starting With Frontend</strong></li>
+                    <ul>
+                        <li>Learning basics of HTML</li>
+                        <li>Learning basics of CSS</li>
+                        <li>Learning basics of JavaScript + jQuery</li>
+                    </ul>
+                    <li><strong>Starting With Backend</strong></li>
+                    <ul>
+                        <li>Backend using Spring MVC - Getting Started</li>
+                        <li>Explaining Configurations</li>
+                        <li>Building first REST API</li>
+                        <li>Running first REST API</li>
+                    </ul>
+                    <li><strong>Starting With Twitter Project</strong></li>
+                    <ul>
+                        <li>Major Project: Twitter Clone</li>
+                        <li>Building Twitter - Sign Up Page</li>
+                        <li>Building Twitter - Login Page</li>
+                        <li>Building Twitter - Profile Page</li>
+                        <li>Building Twitter - Create First Tweet</li>
+                        <li><strong>Adding More Features</strong></li>
+                        <ul>
+                            <li>Building Twitter - Home Feed</li>
+                            <li>Building Twitter - Adding Followers</li>
+                            <li>Building Twitter - Using CDN & Redis</li>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+            <footer style="background-color: #333; color: #f4a261; text-align: center; padding: 20px; font-family: 'Courier New', Courier, monospace; font-size: 1.2rem;">
+                <p>Website developed by <span style="font-weight: bold; color: #e76f51;">V.L.KARTHIK</span></p>
+            </footer>            
+        </section>
+        <script>
+            window.onload = function() {
+                const username = localStorage.getItem('username');
+                const loginButton = document.getElementById('loginStatus');
+    
+                if (username) {
+                    loginButton.textContent = `Welcome, ${username}`;
+                    loginButton.disabled = true;
+                } else {
+                    loginButton.addEventListener('click', function() {
+                        window.location.href = 'login.html';
+                    });
+                }
+            };
+        </script>
+    </main>
+</body>
+</html>

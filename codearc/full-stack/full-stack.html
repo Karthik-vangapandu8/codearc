@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D.S.A Videos</title>
-    <link rel="stylesheet" href="python2.css">
+    <link rel="stylesheet" href="full-stack.css">
 </head>
 <body>
     <header>
@@ -13,10 +13,9 @@
             <ul class="nav-links">
                 <li><a href="/codearc/index.html">Home</a></li>
                 <li><a href="/codearc/d.s.a/dsa.html">D.S.A</a></li>
-                <li><a href="/codearc/full-stack/full-stack.html">Full-stack</a></li>
-                <li><a href="">Python</a></li>
+                <li><a href="/codearc/python2/python2.html">Python</a></li>
             </ul>
-            <button class="sign-in" id="loginStatus">Profile</button>
+            <button id="loginStatus" class="sign-in">Sign in</button>
         </nav>
     </header>
 
@@ -24,12 +23,11 @@
         <aside class="sidebar">
             <h3>Categories</h3>
             <ul class="category-list">
-                <li><button class="category-button" data-category="arrays">Project-1</button></li>
-                <li><button class="category-button" data-category="linked-lists">Project-2</button></li>
+                <li><button class="category-button" data-category="arrays">java-script</button></li>
             </ul>
         </aside>
         <section class="videos">
-            <h2 id="categoryTitle">Python-Videos</h2>
+            <h2 id="categoryTitle">Full-stack introduction</h2>
             <div class="video-container" id="videoContainer">
                 <video id="videoPlayer" controls>
                     <source id="videoSource" src="videos/RAM.mp4" type="video/mp4">
@@ -53,8 +51,6 @@
             </div>
         </section>
     </main>
-    <script src="python2.js"></script>
-    
     <script>
         window.onload = function() {
             const username = localStorage.getItem('username');
@@ -70,5 +66,7 @@
             }
         };
     </script>
+    
+    <script src="full-stack.js"></script>
 </body>
 </html>
