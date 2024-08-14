@@ -28,22 +28,17 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
-
-            // Email format validation
             const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (!emailPattern.test(username)) {
                 errorMessage.textContent = "Please enter a valid email address.";
                 errorMessage.style.display = 'block';
                 return;
             }
-
-            // Minimum password length validation
             if (password.length < 8) {
                 errorMessage.textContent = "Password must be at least 8 characters long.";
                 errorMessage.style.display = 'block';
                 return;
             }
-            // Allowed username and password
             const allowedUsers = {
                 "karthikvangapandu@anits.com": "9948929742",
                 "chittimallavenu@anits.com": "9392480464",
@@ -55,8 +50,6 @@
                 errorMessage.style.display = 'block';
                 return;
             }
-
-            // If all validations pass, store the username and redirect
             localStorage.setItem('username', username);
             window.location.href = 'index.html';
         });
